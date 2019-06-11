@@ -6,4 +6,4 @@ Available from docker hub as [marsblockchain/shadowsocks-libev](https://hub.dock
 
 ## Usage
 
-    docker run --rm marsblockchain/shadowsocks-libev sh
+    docker run -d -p 443:9000 -p 443:9000/udp --name ss-libev marsblockchain/shadowsocks-libev
