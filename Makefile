@@ -17,9 +17,8 @@ help: ## This help.
 .DEFAULT_GOAL := help
 
 build: ## Build images, alias: b
-	@docker build -f Dockerfile . -t $(GROUP_NAME)/$(IMAGE_NAME):latest
+	@docker build -f docker/alpine.dockerfile . -t $(GROUP_NAME)/$(IMAGE_NAME):latest
 	@docker tag $(GROUP_NAME)/$(IMAGE_NAME):latest $(GROUP_NAME)/$(IMAGE_NAME):$(VERSION)
-
 
 push: ## Push images, alias: p
 	@docker push $(GROUP_NAME)/$(IMAGE_NAME):latest
@@ -28,3 +27,4 @@ push: ## Push images, alias: p
 clean: ## Delete local images, alias: c
 	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):latest
 	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):$(VERSION)
+

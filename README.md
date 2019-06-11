@@ -1,9 +1,9 @@
-# Docker phpPgAdmin
+# Docker ShadowSocks-Libv
 
-It's a docker image built with phpPgAdmin.
+It's a docker image built with ShadowSocks-Libv.
 
-Available from docker hub as [marsblockchain/phppgadmin](https://hub.docker.com/r/marsblockchain/phppgadmin/)
+Available from docker hub as [marsblockchain/shadowsocks-libev](https://hub.docker.com/r/marsblockchain/shadowsocks-libev/)
 
 ## Usage
 
-    docker run --rm marsblockchain/phppgadmin sh
+    docker run --rm marsblockchain/shadowsocks-libev sh
