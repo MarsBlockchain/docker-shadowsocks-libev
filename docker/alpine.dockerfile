@@ -1,4 +1,4 @@
-FROM teddysun/shadowsocks-libev:alpine
+FROM teddysun/shadowsocks-r:alpine
 
 LABEL maintainer Justin Liu <justintwd@gmail.com>
 
