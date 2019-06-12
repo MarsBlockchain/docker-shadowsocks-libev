@@ -6,7 +6,9 @@ Available from docker hub as [marsblockchain/shadowsocks-r](https://hub.docker.c
 
 ## Build Image
 
-* edit `.env` file
+* edit image name on `.env` file
+
+* edit password on `docker/data/config.json` line 7.
 
 * build image by run command: `make build`
 
@@ -14,18 +16,7 @@ Available from docker hub as [marsblockchain/shadowsocks-r](https://hub.docker.c
 
 ### Server
 
-* edit password in `docker/data/config.json` line 7.
-
-* run command below
-
-```
-docker run -d \
-    -p 9000:9000 \
-    -p 9000:9000/udp \
-    --name ssr \
-    -v ./docker/data/config.json:/etc/shadowsocks-r/config.json
-    marsblockchain/shadowsocks-r
-```
+* boot up server by run command: `make up`
 
 ### Client
 

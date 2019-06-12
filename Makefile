@@ -24,7 +24,17 @@ push: ## Push images, alias: p
 	@docker push $(GROUP_NAME)/$(IMAGE_NAME):latest
 	@docker push $(GROUP_NAME)/$(IMAGE_NAME):$(VERSION)
 
-clean: ## Delete local images, alias: c
-	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):latest
-	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):$(VERSION)
+clean: halt ## Delete local images, alias: c
+	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):latest > /dev/null 2>&1 || true
+	@docker rmi $(GROUP_NAME)/$(IMAGE_NAME):$(VERSION) > /dev/null 2>&1 || true
 
+up: halt build ## Run ssr server
+	@docker run -d \
+    -p 9000:9000 \
+    -p 9000:9000/udp \
+    --name ssr-server \
+    $(GROUP_NAME)/$(IMAGE_NAME)
+
+halt: ## Halt ssr service
+	@docker kill ssr-server > /dev/null 2>&1 || true
+	@docker rm ssr-server > /dev/null 2>&1 || true
