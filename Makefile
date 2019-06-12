@@ -30,10 +30,10 @@ clean: halt ## Delete local images, alias: c
 
 up: halt build ## Run ssr server
 	@docker run -d \
-    -p 9000:9000 \
-    -p 9000:9000/udp \
-    --name ssr-server \
-    $(GROUP_NAME)/$(IMAGE_NAME)
+		-p 9000:9000 \
+		-p 9000:9000/udp \
+		--name ssr-server \
+		$(GROUP_NAME)/$(IMAGE_NAME)
 
 halt: ## Halt ssr service
 	@docker kill ssr-server > /dev/null 2>&1 || true
